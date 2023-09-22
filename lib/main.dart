@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx_flutter/presentation/home_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mobx_flutter/store/clock_store.dart';
 import 'package:mobx_flutter/store/user_store.dart';
 import 'package:provider/provider.dart';
 
@@ -13,11 +14,13 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<UserStore>(create: (_) => UserStore()),
+        Provider<ClockStore>(create: (_) => ClockStore()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
+        debugShowCheckedModeBanner: false,
         locale: const Locale('de'),
         theme: ThemeData(
           primarySwatch: Colors.blue,
